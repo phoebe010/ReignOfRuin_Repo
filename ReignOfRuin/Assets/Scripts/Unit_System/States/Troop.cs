@@ -2,14 +2,12 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Troop : MonoBehaviour 
+public class Troop : MonoBehaviour, UnitInterface 
 {
     //GridManager gridManager = GridManager._Instance;
     public static Troop _Instance { get; private set; }
 
-    public TroopStats troopStats; 
-    //public Vector2Int targCord = new Vector2Int(2, 4);
-    //public float speed = 0.5f;
+    public TroopStats troopStats;  
 
     private void Awake()
     {
@@ -37,4 +35,7 @@ public class Troop : MonoBehaviour
             yield return new WaitForSeconds(troopStats.speed);
         }
     }
+
+    public void DestroyUI()
+    {}
 } 

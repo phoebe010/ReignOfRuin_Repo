@@ -16,12 +16,13 @@ public class DialogueHandler : MonoBehaviour
     {
         if (null == _Instance)
             _Instance = this;
-        else Destroy(gameObject);
+        else Destroy(gameObject); 
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Begin()
     {
+        txtToScreen = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
         testDialogue.inx = 0;        
         StartCoroutine(TypeWriter(testDialogue.dialogueSequence[testDialogue.inx]));
     }

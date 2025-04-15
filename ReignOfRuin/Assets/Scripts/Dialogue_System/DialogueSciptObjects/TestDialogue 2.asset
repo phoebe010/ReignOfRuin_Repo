@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestDialogue 2
   m_EditorClassIdentifier: 
   dialogueSequence:
-  - I'm over here!
-  - Bastard!
+  - You there!
+  - Press my button!
   inx: 1

@@ -505,17 +505,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1454475110 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1724720521250548905, guid: 1f0abc2aeb49ed7469f63a4466cba705, type: 3}
-  m_PrefabInstance: {fileID: 1157037208439693492}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1157037208439693492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -609,7 +598,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2178909247491708647, guid: 1f0abc2aeb49ed7469f63a4466cba705, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0abc2aeb49ed7469f63a4466cba705, type: 3}
@@ -678,14 +668,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3551159303187391091, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
     - target: {fileID: 4649626281728029866, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 5047544420094869963, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
+      propertyPath: minigame
+      value: 
+      objectReference: {fileID: 2188574900367730844, guid: ebb57ca71f823e0448ebc5b1222061e7, type: 3}
     - target: {fileID: 5050021040817224982, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: txtToScreen
       value: 
-      objectReference: {fileID: 1454475110}
+      objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

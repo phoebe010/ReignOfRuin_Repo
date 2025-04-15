@@ -2,15 +2,5 @@ using UnityEngine;
 
 public class UnitHandler : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   //brainstorm: Use monobehavior exclusives like OnTrigger in scriptable objects 
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Troop : MonoBehaviour
+public class Troop : MonoBehaviour 
 {
     //GridManager gridManager = GridManager._Instance;
     
@@ -11,7 +11,7 @@ public class Troop : MonoBehaviour
 
     private void Start()
     { 
-        Debug.Log(GridManager._Instance);
+        //Debug.Log(GridManager._Instance);
 
         StartCoroutine(MoveOnGrid());         
     }  

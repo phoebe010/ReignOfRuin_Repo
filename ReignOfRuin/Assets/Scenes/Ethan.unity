@@ -684,11 +684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170825332271370965, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: targCord.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6170825332271370965, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: targCord.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.x

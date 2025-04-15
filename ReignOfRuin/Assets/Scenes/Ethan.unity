@@ -682,14 +682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
-    - target: {fileID: 6170825332271370965, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
-      propertyPath: targCord.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170825332271370965, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
-      propertyPath: targCord.y
-      value: 4
-      objectReference: {fileID: 0}
+    - target: {fileID: 5050021040817224982, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
+      propertyPath: txtToScreen
+      value: 
+      objectReference: {fileID: 1454475110}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -730,10 +726,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8769095949695122726, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
-      propertyPath: txtToScreen
-      value: 
-      objectReference: {fileID: 1454475110}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

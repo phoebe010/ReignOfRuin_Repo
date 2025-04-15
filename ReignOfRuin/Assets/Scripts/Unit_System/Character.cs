@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-   private void Awake() //turn this into a behavior that activates upon trigger enter & button press
+   public static Character _Instance { get; private set; }
+
+   private void Awake()
    {
-        DialogueHandler._Instance.Begin();
-   }
+      if (null == _Instance)          
+        _Instance = this;
+      else
+         Destroy(gameObject);
+
+      DialogueHandler._Instance.Begin();
+   } 
 }

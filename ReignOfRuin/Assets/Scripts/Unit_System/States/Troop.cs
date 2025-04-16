@@ -16,8 +16,10 @@ public class Troop : MonoBehaviour, UnitInterface
         else
             Destroy(gameObject);
 
-        troopStats.xPosition = Mathf.RoundToInt(transform.position.x);
-        troopStats.yPosition = Mathf.RoundToInt(transform.position.z);
+        transform.parent.position = new Vector3(WaitAndSelect._Instance.teleCords.x, transform.parent.position.y, WaitAndSelect._Instance.teleCords.y); 
+
+        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
+        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z);
 
         StartCoroutine(MoveOnGrid());
     } 

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb4aabc7b7528a449b20f50f0af06dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigame: {fileID: 2188574900367730844, guid: ebb57ca71f823e0448ebc5b1222061e7, type: 3}
 --- !u!1 &2980808628544728009
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a5ef1ac0e966a49a5c5406c5381862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
 --- !u!114 &5050021040817224982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +208,7 @@ Transform:
   m_Children:
   - {fileID: 6717861289312400412}
   - {fileID: 5276087615183628679}
+  - {fileID: 9105154500654331848}
   - {fileID: 3117500970484405991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,3 +301,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  maxStates: 4
+--- !u!1 &6685208345525089855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9105154500654331848}
+  - component: {fileID: 2138949216977998206}
+  m_Layer: 0
+  m_Name: WaitAndSelect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &9105154500654331848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685208345525089855}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7468379720747740358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138949216977998206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685208345525089855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abcf949dd602914fabd56d77be9d5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleCords: {x: 0, y: 0}
+  startTileUI: {fileID: 4222010329861735984, guid: 958280faac0e6db4ba8eb8ebbc532c8c, type: 3}

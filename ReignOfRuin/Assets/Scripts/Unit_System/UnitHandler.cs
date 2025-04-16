@@ -6,7 +6,7 @@ public class UnitHandler : MonoBehaviour
 {
    //brainstorm: Use monobehavior exclusives like OnTrigger in scriptable objects 
    public static UnitHandler _Instance { get; private set; }
-   public int state = 1; 
+   public int state = 1, maxStates = 3; 
 
    private void Awake()
    {
@@ -20,7 +20,7 @@ public class UnitHandler : MonoBehaviour
    {
       if (Input.GetKeyDown(KeyCode.Space))
       {
-         if (state == 3) return;
+         if (state == maxStates) return;
 
          StateProceed(); 
       }

@@ -6,7 +6,7 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager _Instance { get; private set; }
 
-    [SerializeField] Vector2Int gridSize;
+    public Vector2Int gridSize;
     [SerializeField] int unityGridSize; 
     public int UnityGridSize {get {return unityGridSize;} }
 

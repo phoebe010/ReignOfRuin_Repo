@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targCord: {x: 0, y: 4}
   speed: 0.5
+  xPosition: 0
+  yPosition: 0
+  path: 1

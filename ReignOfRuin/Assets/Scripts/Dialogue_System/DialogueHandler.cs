@@ -36,13 +36,17 @@ public class DialogueHandler : MonoBehaviour
             if (testDialogue.inx >= testDialogue.dialogueSequence.Capacity)
                 return;
             else  
-                StartCoroutine(TypeWriter(testDialogue.dialogueSequence[testDialogue.inx]));
+                if (testDialogue.dialogueSequence[testDialogue.inx] == null) 
+                    return; 
+                else
+                    StartCoroutine(TypeWriter(testDialogue.dialogueSequence[testDialogue.inx]));
         }
     }
 
     IEnumerator TypeWriter(string dialogue) {
-        for (int i=0; i<testDialogue.dialogueSequence[testDialogue.inx].Length+1; i++) {
-            txtToScreen.text = testDialogue.dialogueSequence[testDialogue.inx].Substring(0, i);
+        int curInx = testDialogue.inx; 
+        for (int i=0; i<testDialogue.dialogueSequence[curInx].Length+1; i++) {
+            txtToScreen.text = testDialogue.dialogueSequence[curInx].Substring(0, i);
             yield return new WaitForSeconds(delay);
         }
     }

@@ -43,7 +43,7 @@ public class DialogueHandler : MonoBehaviour
         }
     }
 
-    IEnumerator TypeWriter(string dialogue) {
+    public IEnumerator TypeWriter(string dialogue) {
         int curInx = testDialogue.inx; 
         for (int i=0; i<testDialogue.dialogueSequence[curInx].Length+1; i++) {
             txtToScreen.text = testDialogue.dialogueSequence[curInx].Substring(0, i);

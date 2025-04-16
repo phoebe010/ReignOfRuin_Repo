@@ -9,16 +9,13 @@ public class UnitHandler : MonoBehaviour
 
    void Update()
    {
-      if (Input.GetKeyDown(KeyCode.Space))
-      {
-         if (state == maxStates) return;
-
-         StateProceed(); 
-      }
+      
    }
 
    public void StateProceed()
    {
+      if (state == maxStates) return;
+
       UnitInterface unitState = transform.GetChild(state-1).gameObject.GetComponent<UnitInterface>();
       unitState.DestroyUI();
       transform.GetChild(state-1).gameObject.SetActive(false);

@@ -965,17 +965,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 4649626281728029866, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
+      propertyPath: m_TagString
+      value: PlayerUnit
+      objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7468379720747740358, guid: 0e323416b6def5e439f56fbcb18d7d32, type: 3}
       propertyPath: m_LocalRotation.w

@@ -138,6 +138,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3117500970484405991}
   - component: {fileID: 6834819640832986149}
+  - component: {fileID: 4091568126039705296}
+  - component: {fileID: 9182207384199900337}
+  - component: {fileID: 1502477090259453049}
   m_Layer: 0
   m_Name: Troop
   m_TagString: Untagged
@@ -173,6 +176,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troopStats: {fileID: 11400000, guid: af66986226e66454087a698ba9bb6d77, type: 2}
+  tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
+--- !u!65 &4091568126039705296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115559696171890312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 1}
+--- !u!65 &9182207384199900337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115559696171890312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 1, y: 0, z: 1}
+--- !u!65 &1502477090259453049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115559696171890312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: -1, y: 0, z: 1}
 --- !u!1 &4649626281728029866
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,5 +413,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abcf949dd602914fabd56d77be9d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleCords: {x: 0, y: 0}
+  tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
   startTileUI: {fileID: 4222010329861735984, guid: 958280faac0e6db4ba8eb8ebbc532c8c, type: 3}

@@ -5,10 +5,12 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "TestTroopStats", menuName = "Scriptable Objects/TestTroopStats")]
 public class TroopStats : ScriptableObject
 {
-   public Vector2Int targCord; //= new Vector2Int(0, 4);
+   public Vector2Int targCord; 
    public float speed = 0.5f; 
 
    public int xPosition, yPosition;
+
+   public int health=10, dmg=1;
    
    public enum Path {
       Straight,

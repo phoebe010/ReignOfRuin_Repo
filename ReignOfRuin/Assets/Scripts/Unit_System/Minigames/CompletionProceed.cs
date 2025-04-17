@@ -3,14 +3,13 @@ using UnityEngine;
 public class CompletionProceed : MonoBehaviour
 {
    public UnitHandler uH;
- 
 
    private DialogueHandler dH;
 
    private void Awake()
    {
-      
-      uH = GameObject.Find("Unit").GetComponent<UnitHandler>();
+      //this shit needs to change 
+      uH = GameObject.FindWithTag("PlayerUnit").GetComponent<UnitHandler>();
 
       dH = DialogueHandler._Instance; 
    }
@@ -25,15 +24,15 @@ public class CompletionProceed : MonoBehaviour
       dH.testDialogue.inx++;
    
       if (dH.testDialogue.inx >= dH.testDialogue.dialogueSequence.Capacity) {
-            uH.StateProceed();
+            CompleteProceed();
             return;
       } else  
          if (dH.testDialogue.dialogueSequence[dH.testDialogue.inx] == null) {
-            uH.StateProceed();
+            CompleteProceed();
             return; 
          }
          else
-            dH.StartCoroutine(dH.TypeWriter(dH.testDialogue.dialogueSequence[dH.testDialogue.inx]));    
+            dH.StartCoroutine(dH.TypeWriter(dH.testDialogue.dialogueSequence[dH.testDialogue.inx], dH.testDialogue));    
       
    }
 }

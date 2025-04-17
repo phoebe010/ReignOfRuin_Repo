@@ -41,6 +41,7 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
    
    public void DestroyUI()
    {
+        transform.parent.gameObject.tag = "Untagged";
         Destroy(startTileObj);
    } 
 }

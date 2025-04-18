@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 6717861289312400412}
   - component: {fileID: 3559558448664489930}
   - component: {fileID: 3551159303187391091}
-  - component: {fileID: 5050021040817224982}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -98,7 +97,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 1.5}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3551159303187391091
 MonoBehaviour:
@@ -113,21 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
---- !u!114 &5050021040817224982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980808628544728009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ba00062f674d946b38e0e28e7c4ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testDialogue: {fileID: 11400000, guid: 10db4c3b1322b7548a33ee2b8555d353, type: 2}
-  txtToScreen: {fileID: 0}
-  delay: 0.1
+  dialogue: {fileID: 11400000, guid: a40172eb547ae684bace626e17a125fb, type: 2}
 --- !u!1 &4115559696171890312
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +126,7 @@ GameObject:
   - component: {fileID: 4091568126039705296}
   - component: {fileID: 9182207384199900337}
   - component: {fileID: 1502477090259453049}
+  - component: {fileID: 2626585722549571375}
   m_Layer: 0
   m_Name: Troop
   m_TagString: Untagged
@@ -178,6 +164,8 @@ MonoBehaviour:
   troopStats: {fileID: 11400000, guid: af66986226e66454087a698ba9bb6d77, type: 2}
   tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
   troopType: 0
+  health: 0
+  dmg: 0
 --- !u!65 &4091568126039705296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -241,6 +229,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: -1, y: 0, z: 1}
+--- !u!54 &2626585722549571375
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115559696171890312}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4649626281728029866
 GameObject:
   m_ObjectHideFlags: 0

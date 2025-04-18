@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 882268440955826352}
   - component: {fileID: 168650639025021395}
   - component: {fileID: 1179100112459955483}
+  - component: {fileID: 3892988116996683761}
   m_Layer: 0
   m_Name: Troop
   m_TagString: Untagged
@@ -112,6 +113,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopStats: {fileID: 11400000, guid: 2812df654fd4eee499053b4173153ac7, type: 2}
   tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
+  health: 0
+  dmg: 0
+--- !u!54 &3892988116996683761
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996719802284776123}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8322469622768001755
 GameObject:
   m_ObjectHideFlags: 0

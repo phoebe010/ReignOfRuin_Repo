@@ -10,14 +10,18 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
 
     private Vector2Int testCords = new Vector2Int(0, 0); 
 
+    public int health, dmg;
+    private GameObject enemy;
+
     private void Awake()
     {  
         troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
         troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
 
-        Debug.Log(GridManager._Instance);
+        health = troopStats.health;
+        dmg = troopStats.dmg;
 
-        StartCoroutine(WaitForInstance());
+        //StartCoroutine(WaitForInstance());
     } 
 
     private IEnumerator WaitForInstance()
@@ -55,10 +59,35 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
             yield return new WaitForSeconds(troopStats.speed);
         }
     }
-
+    
+    void Update()
+    {
+        if (health <= 0)
+            Destroy(transform.parent.gameObject);
+        
+        Debug.Log(health);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "PlayerUnit") {
+            enemy = other.gameObject; 
 
+            StartCoroutine(DealDamage());
+        }
+    } 
+
+    private IEnumerator DealDamage()
+    {
+        while (true) {
+            if (enemy != null) {
+                enemy.GetComponentInChildren<Troop>().health -= dmg;
+
+                yield return new WaitForSeconds(troopStats.speed);
+            } else {
+                yield break;
+            }
+        }
     }
 
     public void DestroyUI()

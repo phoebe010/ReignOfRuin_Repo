@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1519733500683094074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5276087615183628679}
-  - component: {fileID: 5047544420094869963}
-  m_Layer: 0
-  m_Name: Minigame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &5276087615183628679
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519733500683094074}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7468379720747740358}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5047544420094869963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519733500683094074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb4aabc7b7528a449b20f50f0af06dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minigame: {fileID: 2188574900367730844, guid: ebb57ca71f823e0448ebc5b1222061e7, type: 3}
 --- !u!1 &2980808628544728009
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +141,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!65 &9182207384199900337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207,7 +162,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 1, y: 0, z: 1}
+  m_Center: {x: 1, y: 0, z: 2}
 --- !u!65 &1502477090259453049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -228,7 +183,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: -1, y: 0, z: 1}
+  m_Center: {x: -1, y: 0, z: 2}
 --- !u!54 &2626585722549571375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -290,7 +245,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6717861289312400412}
-  - {fileID: 5276087615183628679}
   - {fileID: 9105154500654331848}
   - {fileID: 3117500970484405991}
   m_Father: {fileID: 0}
@@ -384,7 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  maxStates: 4
+  maxStates: 2
+  unitType: 1
 --- !u!1 &6685208345525089855
 GameObject:
   m_ObjectHideFlags: 0

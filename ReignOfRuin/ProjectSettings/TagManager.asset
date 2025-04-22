@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerUnit
   - OpponentUnit
+  - PlayerTroop
+  - Station
   layers:
   - Default
   - TransparentFX

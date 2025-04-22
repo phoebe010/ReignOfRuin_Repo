@@ -2,21 +2,28 @@ using UnityEngine;
 
 public class CompletionProceed : MonoBehaviour
 {
-   public UnitHandler uH;
+   public UnitHandler uH, sH;
 
    private DialogueHandler dH;
 
    private void Awake()
    {
       //this shit needs to change 
-      uH = GameObject.FindWithTag("PlayerUnit").GetComponent<UnitHandler>();
+      if (GameObject.FindWithTag("PlayerUnit") != null)
+         uH = GameObject.FindWithTag("PlayerUnit").GetComponent<UnitHandler>();
+      if (GameObject.FindWithTag("Station") != null)
+         sH = GameObject.FindWithTag("Station").GetComponent<UnitHandler>();
 
       dH = DialogueHandler._Instance; 
    }
 
    public void CompleteProceed()
    { 
-      uH.StateProceed(); 
+      if (GameObject.FindWithTag("Station") != null)
+         sH.StateProceed();
+
+      if (GameObject.FindWithTag("PlayerUnit") != null)
+         uH.StateProceed(); 
    } 
 
    public void SpeechProceed()

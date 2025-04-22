@@ -12,12 +12,14 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
 
     public GameObject startTileUI;
     private GameObject startTileObj; 
+    private GameObject canvas;
 
     private void Awake()
-    {     
-        GameObject canvas = GameObject.Find("Canvas");
+    {}
 
-        startTileObj = Instantiate(startTileUI, canvas.transform.position, startTileUI.transform.rotation, canvas.transform);
+    public void Again()
+    {
+        startTileObj = Instantiate(startTileUI, DialogueHandler._Instance.canvas.transform.position, startTileUI.transform.rotation, DialogueHandler._Instance.canvas.transform);
         
         displayCordsText = startTileObj.GetComponent<TextMeshProUGUI>();
     }
@@ -41,7 +43,8 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
    
    public void DestroyUI()
    {
-        transform.parent.gameObject.tag = "Untagged";
+        transform.parent.gameObject.tag = "PlayerTroop";
         Destroy(startTileObj);
+        PlayerStates._Instance.isEngaged = false;
    } 
 }

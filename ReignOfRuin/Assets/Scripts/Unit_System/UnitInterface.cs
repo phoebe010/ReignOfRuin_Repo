@@ -4,5 +4,6 @@ using System.Collections.Generic;
 
 public interface UnitInterface
 { 
+    void Again();
     void DestroyUI();
 }

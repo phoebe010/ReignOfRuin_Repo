@@ -19,18 +19,16 @@ public class Troop : MonoBehaviour, UnitInterface
     private GameObject enemy;
 
     private void Awake()
-    {   
-        transform.parent.position = new Vector3(tC.teleCords.x, transform.parent.position.y, tC.teleCords.y); 
-        
-        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
-        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
-
+    {      
         health = troopStats.health;
         dmg = troopStats.dmg; 
-        opponentFound = false;
+        opponentFound = false; 
  
         StartCoroutine(WaitForInstance());
     } 
+
+    public void Again()
+    {}
 
     private IEnumerator WaitForInstance()
     {
@@ -38,11 +36,33 @@ public class Troop : MonoBehaviour, UnitInterface
             yield return null;
         Debug.Log("GridManager ready");
 
+        StartCoroutine(MoveToGrid());
+    }
+
+    private IEnumerator MoveToGrid()
+    {
+        float elapsedTime=0, hangTime=2f;
+        Vector3 curPos=transform.parent.position, targPos=new Vector3(tC.teleCords.x, transform.parent.position.y, tC.teleCords.y), curRot=transform.parent.eulerAngles;
+
+        while (elapsedTime < hangTime) {
+            transform.parent.position = Vector3.Lerp(curPos, targPos, (elapsedTime/hangTime));
+            transform.parent.eulerAngles = Vector3.Lerp(curRot, Vector3.forward, (elapsedTime/hangTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.parent.position = targPos;
+        transform.parent.eulerAngles = Vector3.forward;
+
         StartCoroutine(MoveOnGrid());
     }
 
     private IEnumerator MoveOnGrid()
     { 
+        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
+        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
+
+        //probably gonna need to add lerping to this
         if (transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x) {
             for (; transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x+1, transform.parent.position.y, transform.parent.position.z)) {
@@ -76,7 +96,7 @@ public class Troop : MonoBehaviour, UnitInterface
             Destroy(transform.parent.gameObject);
         
         //Debug.Log(opponentFound);
-        //Debug.Log(health);
+        Debug.Log(health);
     }
     
     private void OnTriggerEnter(Collider other)

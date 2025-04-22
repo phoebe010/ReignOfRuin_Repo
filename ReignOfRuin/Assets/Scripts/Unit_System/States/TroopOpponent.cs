@@ -24,6 +24,9 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
         //StartCoroutine(WaitForInstance());
     } 
 
+    public void Again()
+    {}
+
     private IEnumerator WaitForInstance()
     {
         while (GridManager._Instance == null)
@@ -65,12 +68,12 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
         if (health <= 0)
             Destroy(transform.parent.gameObject);
         
-        Debug.Log(health);
+       // Debug.Log(health);
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerUnit") {
+        if (other.tag == "PlayerTroop") {
             enemy = other.gameObject; 
 
             StartCoroutine(DealDamage());

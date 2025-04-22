@@ -6,17 +6,20 @@ using TMPro;
 
 public class DialogueHandler : MonoBehaviour
 {
-    public static DialogueHandler _Instance;
+    public static DialogueHandler _Instance { get; private set; }
 
     public Dialogue testDialogue; 
     public TextMeshProUGUI txtToScreen;
     public float delay = 0.1f;
+    public GameObject canvas;
 
     private void Awake()
     {
         if (null == _Instance)
             _Instance = this;
         else Destroy(gameObject); 
+
+        canvas = GameObject.Find("Canvas"); 
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

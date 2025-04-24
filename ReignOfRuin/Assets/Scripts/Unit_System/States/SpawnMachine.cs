@@ -52,5 +52,6 @@ public class SpawnMachine : MonoBehaviour, UnitInterface
    }
 
    public void DestroyUI()
-   {}
+   { 
+   }
 }

@@ -20,12 +20,18 @@ public class PlayerStates : MonoBehaviour
 
     void Update()
     {
-        playerPos = transform.position;
+        playerPos = transform.position; 
+    }
 
-        if (isEngaged == true) {
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        } else {
-            gameObject.GetComponent<CapsuleCollider>().enabled = true;
-        }
+    public void Blink()
+    {
+        StartCoroutine(BlinkRoutine());
+    }
+
+    private IEnumerator BlinkRoutine()
+    { 
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        yield return new WaitForSeconds(0.1f); 
+        gameObject.GetComponent<CapsuleCollider>().enabled = true; 
     }
 }

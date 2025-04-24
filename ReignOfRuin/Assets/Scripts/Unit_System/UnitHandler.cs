@@ -28,7 +28,7 @@ public class UnitHandler : MonoBehaviour
    }
 
    public void StateReset()
-   {
+   { 
       transform.GetChild(state-1).gameObject.SetActive(false);
       transform.GetChild(0).gameObject.SetActive(true);
       if (unitType == UnitType.Station) transform.GetChild(0).gameObject.GetComponent<Character>().Again();

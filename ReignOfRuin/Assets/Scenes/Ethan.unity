@@ -684,6 +684,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2537120411504196688, guid: b81576f5376605042b403f50adcd2730, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3125857478058149072, guid: b81576f5376605042b403f50adcd2730, type: 3}
       propertyPath: speed
       value: 4
@@ -1281,7 +1285,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1413,6 +1417,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2285861552482172174, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4334584025584484124, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
       propertyPath: m_Name
       value: Station

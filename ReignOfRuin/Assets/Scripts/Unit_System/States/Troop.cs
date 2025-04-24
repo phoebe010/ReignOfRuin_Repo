@@ -96,7 +96,7 @@ public class Troop : MonoBehaviour, UnitInterface
             Destroy(transform.parent.gameObject);
         
         //Debug.Log(opponentFound);
-        Debug.Log(health);
+        //Debug.Log(health);
     }
     
     private void OnTriggerEnter(Collider other)

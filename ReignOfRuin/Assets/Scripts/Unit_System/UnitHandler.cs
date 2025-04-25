@@ -11,6 +11,8 @@ public class UnitHandler : MonoBehaviour
       Unit
    } public UnitType unitType;
 
+   public bool imEngaged;
+
    private void Awake()
    {
       maxStates = transform.childCount;
@@ -31,7 +33,7 @@ public class UnitHandler : MonoBehaviour
    { 
       transform.GetChild(state-1).gameObject.SetActive(false);
       transform.GetChild(0).gameObject.SetActive(true);
-      if (unitType == UnitType.Station) transform.GetChild(0).gameObject.GetComponent<Character>().Again();
+      if (unitType == UnitType.Station) transform.GetChild(0).gameObject.GetComponent<CharacterStation>().Again();
       state = 1;
    }
 }

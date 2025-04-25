@@ -18,6 +18,7 @@ public class Minigame : MonoBehaviour, UnitInterface
 
    public void DestroyUI()
    {
+      transform.parent.gameObject.GetComponent<UnitHandler>().imEngaged = false;
       Destroy(miniGameObj);
    }
 }

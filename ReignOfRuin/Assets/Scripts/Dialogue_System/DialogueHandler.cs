@@ -11,7 +11,7 @@ public class DialogueHandler : MonoBehaviour
     public Dialogue testDialogue; 
     public TextMeshProUGUI txtToScreen;
     public float delay = 0.1f;
-    public GameObject canvas;
+    public GameObject canvas; 
 
     private void Awake()
     {

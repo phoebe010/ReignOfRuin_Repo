@@ -9,76 +9,79 @@ public class Character : MonoBehaviour, UnitInterface
    private GameObject dialogueObj; 
    private UnitHandler unitHandler;
 
-   GameObject canvas; 
-
-   [SerializeField] bool notPriority;
+   GameObject canvas;  
 
    private void Awake()
    { 
-      notPriority = false;
       unitHandler = transform.parent.gameObject.GetComponent<UnitHandler>();
-      //StartCoroutine(WaitForInstance()); 
+      StartCoroutine(Orbit());
+
       Again();
-      canvas = GameObject.Find("Canvas"); 
-      //put this under here in a OnTriggerEnter when we have player
+      canvas = GameObject.Find("Canvas");  
    }  
 
    public void Again()
    {
-      transform.parent.gameObject.tag = "Untagged";  
+      transform.parent.gameObject.tag = "Untagged";   
    }
 
    private void OnTriggerEnter(Collider other)
    { 
       //Debug.Log("Collided");
-      if (other.tag == "Player" &&  !PlayerStates._Instance.isEngaged && unitHandler.unitType == UnitHandler.UnitType.Unit) {
+      if (other.tag == "Player" &&  !PlayerStates._Instance.isEngaged && !unitHandler.imEngaged) { 
          transform.parent.gameObject.tag = "PlayerUnit"; 
-         dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
-         DialogueHandler._Instance.Begin(dialogue); 
-         PlayerStates._Instance.isEngaged = true;
-      } 
-      else if (other.tag == "Player" && !notPriority && unitHandler.unitType == UnitHandler.UnitType.Station) {
-         notPriority = true;
-         transform.parent.gameObject.tag = "Station"; 
-         dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
-         DialogueHandler._Instance.Begin(dialogue);   
-      } 
-   } 
-
-   //private void OnTriggerStay(Collider other)
-   //{
-   //   if (other.tag == "PlayerUnit" && unitHandler.unitType == UnitHandler.UnitType.Station) {
-   //      notPriority = true;
-   //   }
-   //}
+         DialogueEngaged(); 
+      }  
+   }  
 
    private void OnTriggerExit(Collider other)
    {
-      if (other.tag == "Player") { 
-         PlayerStates._Instance.Blink();
-         PlayerStates._Instance.isEngaged = false;
+      if (other.tag == "Player") {
+         Again();
+         StartCoroutine(Orbit());
          Destroy(dialogueObj);
+         PlayerStates._Instance.isEngaged = false;
+         unitHandler.imEngaged = false;
       }
+   } 
 
-      if (other.tag == "PlayerUnit" && unitHandler.unitType == UnitHandler.UnitType.Station) { 
-         notPriority = false;
-      }
-   }
-
-   public void Blink()
+   private IEnumerator Orbit()
    {
-      StartCoroutine(BlinkRoutine());
+      float elapsedTime=0, hangTime=2f;
+      Vector3 curPos = transform.parent.position;
+
+      Vector3 targPos = new Vector3(Random.Range(curPos.x-3, curPos.x+3), transform.parent.position.y, Random.Range(curPos.z-3, curPos.z+3));
+      
+      while (elapsedTime < hangTime) {
+         if (PlayerStates._Instance.isEngaged)
+            yield break;
+
+         transform.parent.position = Vector3.Lerp(curPos, targPos, (elapsedTime/hangTime));
+         elapsedTime += Time.deltaTime;
+         yield return null;
+      } 
+      
+      yield return new WaitForSeconds(1f);
+      StartCoroutine(Orbit());
    }
 
-   private IEnumerator BlinkRoutine()
-   { 
-      transform.parent.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-      yield return new WaitForSeconds(0.1f); 
-      transform.parent.gameObject.GetComponent<CapsuleCollider>().enabled = true; 
+   private void DialogueEngaged()
+   {
+      if (GameObject.Find("DialogueObject(Clone)") == null) {
+         dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
+         DialogueHandler._Instance.Begin(dialogue); 
+         PlayerStates._Instance.isEngaged = true;
+         unitHandler.imEngaged = true;
+      }
    }
 
    public void DestroyUI()
-   {  
-      Destroy(dialogueObj);  
+   { 
+      StopCoroutine(Orbit());
+      Destroy(dialogueObj);
+
+      PlayerStates._Instance.isEngaged = false;
+      unitHandler.imEngaged = false;
+        
    }
 }

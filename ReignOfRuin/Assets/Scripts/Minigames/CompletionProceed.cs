@@ -19,7 +19,7 @@ public class CompletionProceed : MonoBehaviour
 
    public void CompleteProceed()
    { 
-      if (GameObject.FindWithTag("Station") != null)
+      if (GameObject.FindWithTag("Station") != null && sH.imEngaged)
          sH.StateProceed();
 
       if (GameObject.FindWithTag("PlayerUnit") != null)

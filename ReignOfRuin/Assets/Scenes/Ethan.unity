@@ -1303,6 +1303,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPos: {x: 0, y: 0, z: 0}
   isEngaged: 0
+--- !u!1 &1827739387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4968890795557144566, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
+  m_PrefabInstance: {fileID: 5931915206319763215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1827739391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827739387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ae77c8248cf1b4e9d96c669aa68367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
+  dialogue: {fileID: 11400000, guid: 10db4c3b1322b7548a33ee2b8555d353, type: 2}
 --- !u!224 &1830071896 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4939211793754677840, guid: 1f0abc2aeb49ed7469f63a4466cba705, type: 3}
@@ -1465,10 +1484,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5735210871967010910, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4968890795557144566, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1827739391}
   m_SourcePrefab: {fileID: 100100000, guid: d6778b8346d3f584e8df286029b8d18c, type: 3}
 --- !u!1001 &6175770244889212531
 PrefabInstance:

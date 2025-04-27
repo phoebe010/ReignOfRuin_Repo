@@ -39,7 +39,12 @@ public class CompletionProceed : MonoBehaviour
             return; 
          }
          else
-            dH.StartCoroutine(dH.TypeWriter(dH.testDialogue.dialogueSequence[dH.testDialogue.inx], dH.testDialogue));    
-      
+            dH.StartCoroutine(dH.TypeWriter(dH.testDialogue.dialogueSequence[dH.testDialogue.inx], dH.testDialogue));     
+   }
+
+   public void MinigameProceed()
+   {
+      MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex());
+      Destroy(transform.parent.gameObject);
    }
 }

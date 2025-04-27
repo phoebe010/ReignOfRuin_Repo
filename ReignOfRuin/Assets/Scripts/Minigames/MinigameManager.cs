@@ -4,23 +4,41 @@ using System.Collections.Generic;
 
 public class MinigameManager : MonoBehaviour
 {
-    public List<int> lvls = new List<int>(); 
+    public static MinigameManager _Instance { get; private set; }
+
+    [System.Serializable] public struct MiniGame {
+        public int lvl;
+        public GameObject miniGameObj;
+    }
+ 
+    public List<MiniGame> miniGames = new List<MiniGame>();
+    public List<MiniGame> randGames = new List<MiniGame>();  
 
     private void Awake()
     {
-        for (int i=0; i<transform.childCount; i++) {   
-            lvls.Add(i);
-        }
+        if (null == _Instance)
+            _Instance = this;
+        else
+            Destroy(gameObject);
+    }
+//how to randomize this though...
+    public void InitMinigame(int x)
+    { 
+       for (int i=0; i<miniGames.Count; i++) {
+            if (x == miniGames[i].lvl) {
+                randGames.Add(miniGames[i]);              
+            }
+       } 
+        
+       StartCoroutine(StartMiniGame(randGames[Random.Range(0, randGames.Count)]));
 
-        StartCoroutine(SetStats());       
     }
 
-    private IEnumerator SetStats()
+    private IEnumerator StartMiniGame(MiniGame mG)
     {
-        foreach (int lvl in lvls) {
-            Debug.Log(lvl);
+        //instantiate minigame object here
+        yield return null;
 
-            yield return null;        
-        } 
-    }
+        //at the end of this coroutine, clear randGames
+    } 
 }

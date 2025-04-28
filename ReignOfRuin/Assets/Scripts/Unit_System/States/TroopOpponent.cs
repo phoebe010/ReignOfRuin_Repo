@@ -10,7 +10,7 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
 
     private Vector2Int testCords = new Vector2Int(0, 0); 
 
-    public int health, dmg;
+    public float health, dmg;
     private GameObject enemy;
 
     private void Awake()

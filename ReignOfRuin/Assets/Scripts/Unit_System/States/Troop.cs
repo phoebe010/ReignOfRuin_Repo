@@ -14,14 +14,27 @@ public class Troop : MonoBehaviour, UnitInterface
         Air
     } public TroopType troopType; 
 
-    public int health, dmg;
+    public float health, dmg;
     private bool opponentFound;
     private GameObject enemy;
 
     private void Awake()
-    {      
-        health = troopStats.health;
-        dmg = troopStats.dmg; 
+    {  
+        switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    
+            case 0: 
+                health = troopStats.health;
+                dmg = troopStats.dmg; 
+                break;
+            case 1:
+                health = troopStats.health*1.25f;
+                dmg = troopStats.dmg*1.25f;
+                break;
+            case 2:
+                health = troopStats.health*1.5f;
+                dmg = troopStats.dmg*1.5f;
+                break;
+        }
+        
         opponentFound = false; 
  
         StartCoroutine(WaitForInstance());
@@ -94,9 +107,7 @@ public class Troop : MonoBehaviour, UnitInterface
     {
         if (health <= 0)
             Destroy(transform.parent.gameObject);
-        
-        //Debug.Log(opponentFound);
-        //Debug.Log(health);
+         
     }
     
     private void OnTriggerEnter(Collider other)

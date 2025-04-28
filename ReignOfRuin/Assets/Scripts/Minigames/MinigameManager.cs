@@ -14,6 +14,8 @@ public class MinigameManager : MonoBehaviour
     public List<MiniGame> miniGames = new List<MiniGame>();
     public List<MiniGame> randGames = new List<MiniGame>();  
 
+    public int gameLvl=0;
+
     private void Awake()
     {
         if (null == _Instance)
@@ -24,6 +26,8 @@ public class MinigameManager : MonoBehaviour
 //how to randomize this though...
     public void InitMinigame(int x, UnitHandler sH)
     { 
+        gameLvl = x;
+
        for (int i=0; i<miniGames.Count; i++) {
             if (x == miniGames[i].lvl) {
                 randGames.Add(miniGames[i]);              

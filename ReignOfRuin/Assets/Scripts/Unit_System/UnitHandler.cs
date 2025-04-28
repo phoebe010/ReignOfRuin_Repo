@@ -12,11 +12,21 @@ public class UnitHandler : MonoBehaviour
    } public UnitType unitType;
 
    public bool imEngaged;
+   public int statMultiplier;
 
    private void Awake()
    {
       maxStates = transform.childCount;
+      StartCoroutine(WaitForInstance()); 
    } 
+
+   private IEnumerator WaitForInstance()
+   {
+      while (MinigameManager._Instance == null)
+         yield return null;
+      
+      statMultiplier = MinigameManager._Instance.gameLvl;
+   }
 
    public void StateProceed()
    {

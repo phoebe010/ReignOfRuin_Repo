@@ -10,7 +10,7 @@ public class TroopStats : ScriptableObject
 
    public int xPosition, yPosition;
 
-   public int health=10, dmg=1;
+   public float health=10f, dmg=1f;
    
    public enum Path {
       Straight,

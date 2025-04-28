@@ -44,7 +44,7 @@ public class CompletionProceed : MonoBehaviour
 
    public void MinigameProceed()
    {
-      MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex());
+      MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex(), sH);
       Destroy(transform.parent.gameObject);
    }
 }

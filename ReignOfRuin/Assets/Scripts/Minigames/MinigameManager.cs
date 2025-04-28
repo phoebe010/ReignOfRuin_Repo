@@ -22,7 +22,7 @@ public class MinigameManager : MonoBehaviour
             Destroy(gameObject);
     }
 //how to randomize this though...
-    public void InitMinigame(int x)
+    public void InitMinigame(int x, UnitHandler sH)
     { 
        for (int i=0; i<miniGames.Count; i++) {
             if (x == miniGames[i].lvl) {
@@ -30,11 +30,11 @@ public class MinigameManager : MonoBehaviour
             }
        } 
         
-       StartCoroutine(StartMiniGame(randGames[Random.Range(0, randGames.Count)]));
+       StartCoroutine(StartMiniGame(randGames[Random.Range(0, randGames.Count)], sH));
 
     }
 
-    private IEnumerator StartMiniGame(MiniGame mG)
+    private IEnumerator StartMiniGame(MiniGame mG, UnitHandler sH)
     {
         //instantiate minigame object here
         yield return null;

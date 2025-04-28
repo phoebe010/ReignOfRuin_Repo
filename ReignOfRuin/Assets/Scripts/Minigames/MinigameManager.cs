@@ -8,7 +8,7 @@ public class MinigameManager : MonoBehaviour
 
     [System.Serializable] public struct MiniGame {
         public int lvl;
-        public GameObject miniGameObj;
+        public GameObject mgObj;
     }
  
     public List<MiniGame> miniGames = new List<MiniGame>();
@@ -30,15 +30,15 @@ public class MinigameManager : MonoBehaviour
             }
        } 
         
-       StartCoroutine(StartMiniGame(randGames[Random.Range(0, randGames.Count)], sH));
+       StartMiniGame(randGames[Random.Range(0, randGames.Count)], sH);
 
     }
 
-    private IEnumerator StartMiniGame(MiniGame mG, UnitHandler sH)
+    private void StartMiniGame(MiniGame mG, UnitHandler sH)
     {
         //instantiate minigame object here
-        yield return null;
-
+        GameObject miniGamePref = Instantiate(mG.mgObj, mG.mgObj.transform.position, mG.mgObj.transform.rotation); 
         //at the end of this coroutine, clear randGames
+        randGames.Clear();
     } 
 }

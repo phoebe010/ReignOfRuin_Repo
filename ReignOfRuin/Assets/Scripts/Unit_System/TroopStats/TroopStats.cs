@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "TestTroopStats", menuName = "Scriptable Objects/TestTroopStats")]
 public class TroopStats : ScriptableObject
-{
-   public Vector2Int targCord; 
+{ 
    public float speed = 0.5f; 
 
    public int xPosition, yPosition;
@@ -20,6 +19,8 @@ public class TroopStats : ScriptableObject
 
    public Vector2Int TargCordCompiler()
    {
+      Vector2Int targCord = new Vector2Int(xPosition, GridManager._Instance.gridSize.y-1);
+
       if (path == Path.Straight) {
          targCord = new Vector2Int(xPosition, GridManager._Instance.gridSize.y-1);
       } 

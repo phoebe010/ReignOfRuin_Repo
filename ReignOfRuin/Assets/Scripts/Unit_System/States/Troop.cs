@@ -15,6 +15,7 @@ public class Troop : MonoBehaviour, UnitInterface
     } public TroopType troopType; 
 
     public float health, dmg;
+    public Vector2Int finalTargCord;
     private bool opponentFound;
     private GameObject enemy;
 
@@ -66,6 +67,8 @@ public class Troop : MonoBehaviour, UnitInterface
 
         transform.parent.position = targPos;
         transform.parent.eulerAngles = Vector3.forward;
+//this resolves the recompiling bug
+        finalTargCord = troopStats.TargCordCompiler();
 
         StartCoroutine(MoveOnGrid());
     }
@@ -76,16 +79,16 @@ public class Troop : MonoBehaviour, UnitInterface
         troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
 
         //probably gonna need to add lerping to this
-        if (transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x) {
-            for (; transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x; 
+        if (transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x) {
+            for (; transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x+1, transform.parent.position.y, transform.parent.position.z)) {
                 if (opponentFound == true) yield break;
                 if (transform.parent.position.x  == 0) continue;
                 
                 yield return new WaitForSeconds(troopStats.speed);
             }
-        } else if (transform.parent.position.x > GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x) {
-            for (; transform.parent.position.x > GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x; 
+        } else if (transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x) {
+            for (; transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x-1, transform.parent.position.y, transform.parent.position.z)) {
                 if (opponentFound == true) yield break;
                 if (transform.parent.position.x  == 0) continue;
@@ -94,7 +97,7 @@ public class Troop : MonoBehaviour, UnitInterface
             }
         }
         
-        for (; transform.parent.position.z < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.y; 
+        for (; transform.parent.position.z < GridManager._Instance.grid[finalTargCord].cords.y; 
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z+1)) { 
             if (opponentFound == true) yield break;
             if (transform.parent.position.z == 0) continue;

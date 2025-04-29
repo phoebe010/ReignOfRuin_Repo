@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Character : MonoBehaviour, UnitInterface
 { 
    public GameObject dialogueUI;
-   public Dialogue dialogue;
+   public List<Dialogue> randDialogue = new List<Dialogue>();
    private GameObject dialogueObj; 
    private UnitHandler unitHandler;
 
@@ -69,7 +69,7 @@ public class Character : MonoBehaviour, UnitInterface
    {
       if (GameObject.Find("DialogueObject(Clone)") == null) {
          dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
-         DialogueHandler._Instance.Begin(dialogue); 
+         DialogueHandler._Instance.Begin(randDialogue[Random.Range(0, randDialogue.Count)]); 
          PlayerStates._Instance.isEngaged = true;
          unitHandler.imEngaged = true;
       }

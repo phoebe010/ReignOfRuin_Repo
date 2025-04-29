@@ -67,7 +67,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
-  dialogue: {fileID: 11400000, guid: a40172eb547ae684bace626e17a125fb, type: 2}
+  randDialogue:
+  - {fileID: 11400000, guid: a40172eb547ae684bace626e17a125fb, type: 2}
+  - {fileID: 11400000, guid: 10db4c3b1322b7548a33ee2b8555d353, type: 2}
 --- !u!1 &4115559696171890312
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +343,8 @@ MonoBehaviour:
   state: 1
   maxStates: 2
   unitType: 1
+  imEngaged: 0
+  statMultiplier: 0
 --- !u!54 &1578855874647509825
 Rigidbody:
   m_ObjectHideFlags: 0

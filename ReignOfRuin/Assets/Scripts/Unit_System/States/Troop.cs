@@ -82,18 +82,22 @@ public class Troop : MonoBehaviour, UnitInterface
         if (transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x) {
             for (; transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x+1, transform.parent.position.y, transform.parent.position.z)) {
-                if (opponentFound == true) yield break;
+                
                 if (transform.parent.position.x  == 0) continue;
                 
                 yield return new WaitForSeconds(troopStats.speed);
+
+                if (opponentFound == true) yield break;
             }
         } else if (transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x) {
             for (; transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x-1, transform.parent.position.y, transform.parent.position.z)) {
-                if (opponentFound == true) yield break;
+                
                 if (transform.parent.position.x  == 0) continue;
                 
                 yield return new WaitForSeconds(troopStats.speed);
+
+                if (opponentFound == true) yield break;
             }
         }
         
@@ -117,11 +121,23 @@ public class Troop : MonoBehaviour, UnitInterface
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "OpponentUnit") {
-            StopCoroutine(MoveOnGrid());
+        if (other.tag == "OpponentUnit") { 
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());
+        } else if (other.tag == "OpponentStronghold") {
+            opponentFound = true;
+            enemy = other.gameObject;
+            StartCoroutine(DealDamageStronghold());
+        }
+    }
+
+    private IEnumerator DealDamageStronghold()
+    {
+        while (enemy != null) {
+            enemy.GetComponent<Stronghold>().health -= dmg;
+
+            yield return new WaitForSeconds(troopStats.speed);
         }
     }
 

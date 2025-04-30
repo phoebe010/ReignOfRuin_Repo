@@ -9,6 +9,7 @@ TagManager:
   - PlayerTroop
   - Station
   - InteractUI
+  - OpponentStronghold
   layers:
   - Default
   - TransparentFX

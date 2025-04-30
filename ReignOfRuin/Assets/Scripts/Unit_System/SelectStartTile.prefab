@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3872139814042175267}
   m_Layer: 5
   m_Name: SelectStartTile
-  m_TagString: Untagged
+  m_TagString: InteractUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uH: {fileID: 0}
-  canProceed: 0
+  sH: {fileID: 0}
 --- !u!1 &8652380182208347660
 GameObject:
   m_ObjectHideFlags: 0

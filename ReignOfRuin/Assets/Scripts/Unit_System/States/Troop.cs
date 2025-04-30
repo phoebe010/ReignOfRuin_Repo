@@ -67,17 +67,17 @@ public class Troop : MonoBehaviour, UnitInterface
 
         transform.parent.position = targPos;
         transform.parent.eulerAngles = Vector3.forward;
-//this resolves the recompiling bug
+//this always needs to go before so it will get the path of movement right every time
+        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
+        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
+//setting this variable resolves the recompiling bug
         finalTargCord = troopStats.TargCordCompiler();
 
         StartCoroutine(MoveOnGrid());
     }
 
     private IEnumerator MoveOnGrid()
-    { 
-        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
-        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
-
+    {  
         //probably gonna need to add lerping to this
         if (transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x) {
             for (; transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x; 
@@ -99,10 +99,12 @@ public class Troop : MonoBehaviour, UnitInterface
         
         for (; transform.parent.position.z < GridManager._Instance.grid[finalTargCord].cords.y; 
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z+1)) { 
-            if (opponentFound == true) yield break;
+             
             if (transform.parent.position.z == 0) continue;
 
             yield return new WaitForSeconds(troopStats.speed);
+//this resolves the stopping too late issue
+            if (opponentFound == true) yield break;
         }
     }
 
@@ -116,6 +118,7 @@ public class Troop : MonoBehaviour, UnitInterface
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "OpponentUnit") {
+            StopCoroutine(MoveOnGrid());
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());

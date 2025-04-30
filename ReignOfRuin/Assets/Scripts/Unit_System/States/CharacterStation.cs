@@ -44,7 +44,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 
    private void DialogueEngaged()
    {
-      if (GameObject.Find("DialogueObject(Clone)") == null) {
+      if (GameObject.FindWithTag("InteractUI") == null) {
          dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
          DialogueHandler._Instance.Begin(dialogue); 
          PlayerStates._Instance.isEngaged = true;

@@ -8,6 +8,7 @@ TagManager:
   - OpponentUnit
   - PlayerTroop
   - Station
+  - InteractUI
   layers:
   - Default
   - TransparentFX

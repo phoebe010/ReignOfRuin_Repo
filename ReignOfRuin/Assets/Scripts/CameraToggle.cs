@@ -12,6 +12,17 @@ public class CameraToggle : MonoBehaviour
         Camera1 = GameObject.Find ("Main Camera").GetComponent<Camera> ();
         Camera2 = GameObject.Find ("Lanes Camera").GetComponent<Camera> ();
 
+        
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.C)){
+            CameraChange();
+            Debug.Log("pressed");
+        }
+    }
+
+    void CameraChange(){
         if (Manager == 0){
             Camera1.rect = new Rect(0, 0, .6f, 1);
             Camera1.rect = new Rect(0, 0, 1, .6f);

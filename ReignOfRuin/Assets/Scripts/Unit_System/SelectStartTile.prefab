@@ -174,8 +174,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90.30475, y: -54.99167}
-  m_SizeDelta: {x: 107, y: 30}
+  m_AnchoredPosition: {x: 90.30475, y: -65.007904}
+  m_SizeDelta: {x: 107, y: 50.0325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5982820505726510917
 CanvasRenderer:
@@ -260,8 +260,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6123202502579590147}
-        m_TargetAssemblyTypeName: CompletionProceed, Assembly-CSharp
-        m_MethodName: CompleteProceed
+        m_TargetAssemblyTypeName: ProceedButton, Assembly-CSharp
+        m_MethodName: CompleteProceedButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -350,7 +350,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 'Enter
+
+    <--'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

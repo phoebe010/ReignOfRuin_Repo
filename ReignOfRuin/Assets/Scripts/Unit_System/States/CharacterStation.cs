@@ -6,7 +6,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 { 
    public GameObject dialogueUI;
    public Dialogue dialogue;
-   private GameObject dialogueObj; 
+   //private GameObject dialogueObj; 
    private UnitHandler unitHandler;
 
    GameObject canvas;  
@@ -22,6 +22,9 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    public void Again()
    {
       transform.parent.gameObject.tag = "Untagged";   
+      
+      if (dialogueUI == null)
+         dialogueUI = GameObject.Find("InteractionUI").transform.GetChild(0).gameObject;
    }
 
    private void OnTriggerEnter(Collider other)
@@ -36,7 +39,8 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    {
       if (other.tag == "Player") {
          Again();
-         Destroy(dialogueObj);
+         //Destroy(dialogueObj);
+         dialogueUI.SetActive(false);
          PlayerStates._Instance.isEngaged = false;
          unitHandler.imEngaged = false;
       }
@@ -45,7 +49,8 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    private void DialogueEngaged()
    {
       if (GameObject.FindWithTag("InteractUI") == null) {
-         dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
+         //dialogueObj = Instantiate(dialogueUI, canvas.transform.position, dialogueUI.transform.rotation, canvas.transform); 
+         dialogueUI.SetActive(true);
          DialogueHandler._Instance.Begin(dialogue); 
          PlayerStates._Instance.isEngaged = true;
          unitHandler.imEngaged = true;
@@ -55,6 +60,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    public void DestroyUI()
    {  
       PlayerStates._Instance.isEngaged = false; 
-      Destroy(dialogueObj);  
+      //Destroy(dialogueObj);  
+      dialogueUI.SetActive(false);
    }
 }

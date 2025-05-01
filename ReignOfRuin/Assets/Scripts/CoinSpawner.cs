@@ -11,7 +11,7 @@ public class CoinSpawner : MonoBehaviour
     void Start()
     {   
         for (int i = 0; i < 6; i++){
-            Instantiate(coinPrefab, new Vector2(Random.Range(minX, maxX), Random.Range(minZ,maxZ)), Quaternion.identity);
+            Instantiate(coinPrefab, new Vector3(Random.Range(minX, maxX), 0.75f,Random.Range(minZ,maxZ)), Quaternion.identity);
         }
     }
 

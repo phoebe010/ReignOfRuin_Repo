@@ -35,12 +35,12 @@ public class SpawnMachine : MonoBehaviour, UnitInterface
         while (randPositions.Count < amountToSpawn) {
                BoundsCalculator();
                randPos = bounds.center + new Vector3(offsetX, 0f, offsetZ);
-               if (!randPositions.Contains(randPos) && randPos.x < PlayerStates._Instance.playerPos.x && randPos.z > space.z) {
+               if (!randPositions.Contains(randPos)) {
                     randPositions.Add(randPos);
                     Instantiate(unit, randPos, unit.transform.rotation); 
                }
                
-               space = randPos + new Vector3(0.5f, 0, 0.5f);
+               //space = randPos + new Vector3(0.5f, 0, 0.5f);
                
                yield return new WaitForSeconds(0.05f); 
         }

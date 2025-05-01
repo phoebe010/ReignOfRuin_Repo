@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 990845373040312642, guid: fcf788b6c9688074ebb2d4e2ecd2ee01, type: 3}
-  minX: -9
-  maxX: 9
-  minZ: -7
-  maxZ: -2
+  minX: -4
+  maxX: 5
+  minZ: -12
+  maxZ: -5
   stationHandler: {fileID: 0}

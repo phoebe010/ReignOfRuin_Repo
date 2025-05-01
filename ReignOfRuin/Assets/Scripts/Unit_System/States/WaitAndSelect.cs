@@ -19,7 +19,7 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
 
     public void Again()
     {
-        startTileObj = Instantiate(startTileUI, DialogueHandler._Instance.canvas.transform.position, startTileUI.transform.rotation, DialogueHandler._Instance.canvas.transform);
+        startTileObj = Instantiate(startTileUI, startTileUI.transform.position, startTileUI.transform.rotation, DialogueHandler._Instance.canvas.transform);
         
         displayCordsText = startTileObj.GetComponent<TextMeshProUGUI>();
     }

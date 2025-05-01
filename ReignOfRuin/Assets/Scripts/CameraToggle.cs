@@ -11,25 +11,6 @@ public class CameraToggle : MonoBehaviour
     public void Start(){
         Camera1 = GameObject.Find ("Main Camera").GetComponent<Camera> ();
         Camera2 = GameObject.Find ("Lanes Camera").GetComponent<Camera> ();
-
-<<<<<<< HEAD
-        
-    }
-
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.C)){
-            CameraChange();
-            Debug.Log("pressed");
-        }
-    }
-
-    void CameraChange(){
-=======
-<<<<<<< Updated upstream
->>>>>>> Ariel's_Branch
-        if (Manager == 0){
-            Camera1.rect = new Rect(0, 0, .6f, 1);
-=======
         
     }
 
@@ -41,7 +22,6 @@ public class CameraToggle : MonoBehaviour
 
     void CameraChange(){
         if (Manager == 1){
->>>>>>> Stashed changes
             Camera1.rect = new Rect(0, 0, 1, .6f);
             Camera2.rect = new Rect(0, .6f, 1, 1);
             Manager = 0;

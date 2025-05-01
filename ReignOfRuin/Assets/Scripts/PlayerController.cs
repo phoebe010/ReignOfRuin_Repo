@@ -30,4 +30,13 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+        }
+        
+    }
 }

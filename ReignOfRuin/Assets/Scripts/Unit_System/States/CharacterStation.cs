@@ -29,7 +29,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 
    private void OnTriggerEnter(Collider other)
    {    
-      if (other.tag == "Player" && !PlayerStates._Instance.isEngaged && !unitHandler.imEngaged) { 
+      if (other.tag == "Player" && !PlayerStates._Instance.isEngaged) { 
          transform.parent.gameObject.tag = "Station"; 
          DialogueEngaged();          
       } 
@@ -45,6 +45,12 @@ public class CharacterStation : MonoBehaviour, UnitInterface
          unitHandler.imEngaged = false;
       }
    }  
+
+   void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Space) && unitHandler.imEngaged)
+         DialogueHandler._Instance.SpeechProceed();
+   }
 
    private void DialogueEngaged()
    {

@@ -43,7 +43,7 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
                 tC.teleCords.x = GridManager._Instance.gridSize.x-1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             transform.parent.GetComponent<UnitHandler>().StateProceed();
         }
     }

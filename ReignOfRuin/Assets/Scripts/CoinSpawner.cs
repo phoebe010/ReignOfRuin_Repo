@@ -24,8 +24,8 @@ public class CoinSpawner : MonoBehaviour
     {
         if (PlayerController._Instance.CoinCounter == 6){
             stationHandler.StateProceed();
-            PlayerController._Instance.CoinCounter = 0;
             Destroy(gameObject);
+            PlayerController._Instance.CoinCounter = 0; 
         }
     }
 }

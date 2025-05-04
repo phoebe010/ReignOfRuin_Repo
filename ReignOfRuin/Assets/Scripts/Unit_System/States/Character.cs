@@ -6,6 +6,7 @@ public class Character : MonoBehaviour, UnitInterface
 { 
    public GameObject dialogueUI;
    public List<Dialogue> randDialogue = new List<Dialogue>();
+   public Rigidbody rB;
    //private GameObject dialogueObj; 
    private UnitHandler unitHandler;
 
@@ -14,6 +15,7 @@ public class Character : MonoBehaviour, UnitInterface
    private void Awake()
    { 
       unitHandler = transform.parent.gameObject.GetComponent<UnitHandler>();
+      //rB = gameObject.GetComponent<Rigidbody>();
       StartCoroutine(Orbit());
 
       Again();
@@ -26,43 +28,56 @@ public class Character : MonoBehaviour, UnitInterface
       
       if (dialogueUI == null)
          dialogueUI = GameObject.Find("InteractionUI").transform.GetChild(0).gameObject;
+
+      
    }
 
    private void OnTriggerEnter(Collider other)
    { 
       //Debug.Log("Collided");
-      if (other.tag == "Player" &&  !PlayerStates._Instance.isEngaged && !unitHandler.imEngaged) { 
+      if (other.tag == "Player" &&  !PlayerStates._Instance.isEngaged) { 
+         //StopCoroutine(Orbit());
          transform.parent.gameObject.tag = "PlayerUnit"; 
          DialogueEngaged(); 
-      }  
+      }   
    }  
 
    private void OnTriggerExit(Collider other)
    {
       if (other.tag == "Player") {
-         Again();
-         StartCoroutine(Orbit());
-         dialogueUI.SetActive(false); 
+         Again(); 
+         unitHandler.ranInto = false;
          PlayerStates._Instance.isEngaged = false;
+         dialogueUI.SetActive(false);  
          unitHandler.imEngaged = false;
+
+         StartCoroutine(Orbit());
       }
    } 
 
+   void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Space) && unitHandler.imEngaged)
+         DialogueHandler._Instance.SpeechProceed();
+   }
+
    private IEnumerator Orbit()
    {
-      //no need for lerp with Rigidbody.MovePosition()
+      //no need for lerp with Rigidbody.MovePosition() 
       float elapsedTime=0, hangTime=2f;
       Vector3 curPos = transform.parent.position;
 
       Vector3 targPos = new Vector3(Random.Range(curPos.x-3, curPos.x+3), transform.parent.position.y, Random.Range(curPos.z-3, curPos.z+3));
       
-      while (elapsedTime < hangTime) {
-         if (PlayerStates._Instance.isEngaged)
-            yield break;
+      while (elapsedTime < hangTime) { 
+         if (unitHandler.imEngaged == true || unitHandler.ranInto == true) 
+            yield break;  
 
          transform.parent.position = Vector3.Lerp(curPos, targPos, (elapsedTime/hangTime));
+         //rB.MovePosition(curPos + (targPos-curPos) * (elapsedTime/hangTime));
+
          elapsedTime += Time.deltaTime;
-         yield return null;
+         yield return null; 
       } 
       
       yield return new WaitForSeconds(1f);

@@ -12,12 +12,17 @@ public class ProceedButton : MonoBehaviour
       dH = DialogueHandler._Instance; 
    }
 
-   public void CompleteProceedButton()
-   { 
+   public void FindUnit()
+   {
       if (GameObject.FindWithTag("PlayerUnit") != null)
          uH = GameObject.FindWithTag("PlayerUnit").GetComponent<UnitHandler>();
       if (GameObject.FindWithTag("Station") != null)
          sH = GameObject.FindWithTag("Station").GetComponent<UnitHandler>();
+   }
+
+   public void CompleteProceedButton()
+   { 
+      FindUnit();
 
       if (GameObject.FindWithTag("Station") != null && sH.imEngaged)
          sH.StateProceed();
@@ -33,6 +38,8 @@ public class ProceedButton : MonoBehaviour
 
    public void MinigameProceed()
    {
+      //FindUnit();
+      //Debug.Log("Time for a minigame");
       MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex(), sH);
       //Destroy(transform.parent.gameObject);
       transform.parent.gameObject.SetActive(false);

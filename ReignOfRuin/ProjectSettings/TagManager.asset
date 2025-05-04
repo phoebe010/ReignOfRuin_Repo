@@ -11,6 +11,7 @@ TagManager:
   - InteractUI
   - OpponentStronghold
   - Coin
+  - Building
   layers:
   - Default
   - TransparentFX

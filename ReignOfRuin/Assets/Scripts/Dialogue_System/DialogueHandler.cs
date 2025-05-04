@@ -58,12 +58,13 @@ public class DialogueHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-            SpeechProceed();
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //        SpeechProceed();
+    //}
 
+//put an interrupt here so its not janky
     public IEnumerator TypeWriter(string dialogue, Dialogue testDialogue) {
         int curInx = testDialogue.inx; 
         for (int i=0; i<testDialogue.dialogueSequence[curInx].Length+1; i++) {

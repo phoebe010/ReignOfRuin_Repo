@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6717861289312400412}
   - component: {fileID: 3559558448664489930}
   - component: {fileID: 3551159303187391091}
+  - component: {fileID: 3413211538187636272}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -66,10 +67,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a5ef1ac0e966a49a5c5406c5381862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 1773328605064087146, guid: bd91bf6b5fe67634e83161a6a52dc8e8, type: 3}
+  dialogueUI: {fileID: 0}
   randDialogue:
   - {fileID: 11400000, guid: a40172eb547ae684bace626e17a125fb, type: 2}
   - {fileID: 11400000, guid: 10db4c3b1322b7548a33ee2b8555d353, type: 2}
+  rB: {fileID: 0}
+--- !u!54 &3413211538187636272
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980808628544728009}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4115559696171890312
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +152,7 @@ MonoBehaviour:
   troopType: 0
   health: 0
   dmg: 0
+  finalTargCord: {x: 0, y: 0}
 --- !u!65 &4091568126039705296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -143,7 +173,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 2}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!65 &9182207384199900337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -164,7 +194,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 1, y: 0, z: 2}
+  m_Center: {x: 1, y: 0, z: 1}
 --- !u!65 &1502477090259453049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -185,7 +215,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: -1, y: 0, z: 2}
+  m_Center: {x: -1, y: 0, z: 1}
 --- !u!54 &2626585722549571375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -226,7 +256,7 @@ GameObject:
   - component: {fileID: 8827419161410705727}
   - component: {fileID: 1233941172977939323}
   - component: {fileID: 912209228115090520}
-  - component: {fileID: 1578855874647509825}
+  - component: {fileID: 3575509762580055492}
   m_Layer: 0
   m_Name: Unit
   m_TagString: PlayerUnit
@@ -320,7 +350,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -344,8 +374,9 @@ MonoBehaviour:
   maxStates: 2
   unitType: 1
   imEngaged: 0
+  ranInto: 0
   statMultiplier: 0
---- !u!54 &1578855874647509825
+--- !u!54 &3575509762580055492
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

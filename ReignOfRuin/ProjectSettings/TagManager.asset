@@ -8,6 +8,10 @@ TagManager:
   - OpponentUnit
   - PlayerTroop
   - Station
+  - InteractUI
+  - OpponentStronghold
+  - Coin
+  - Building
   layers:
   - Default
   - TransparentFX

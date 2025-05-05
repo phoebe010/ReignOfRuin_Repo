@@ -15,6 +15,7 @@ public class Troop : MonoBehaviour, UnitInterface
     } public TroopType troopType; 
 
     public float health, dmg;
+    public Vector2Int finalTargCord;
     private bool opponentFound;
     private GameObject enemy;
 
@@ -66,40 +67,48 @@ public class Troop : MonoBehaviour, UnitInterface
 
         transform.parent.position = targPos;
         transform.parent.eulerAngles = Vector3.forward;
+//this always needs to go before so it will get the path of movement right every time
+        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
+        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
+//setting this variable resolves the recompiling bug
+        finalTargCord = troopStats.TargCordCompiler();
 
         StartCoroutine(MoveOnGrid());
     }
 
     private IEnumerator MoveOnGrid()
-    { 
-        troopStats.xPosition = Mathf.RoundToInt(transform.parent.position.x);
-        troopStats.yPosition = Mathf.RoundToInt(transform.parent.position.z); 
-
+    {  
         //probably gonna need to add lerping to this
-        if (transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x) {
-            for (; transform.parent.position.x < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x; 
+        if (transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x) {
+            for (; transform.parent.position.x < GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x+1, transform.parent.position.y, transform.parent.position.z)) {
-                if (opponentFound == true) yield break;
+                
                 if (transform.parent.position.x  == 0) continue;
                 
                 yield return new WaitForSeconds(troopStats.speed);
+
+                if (opponentFound == true) yield break;
             }
-        } else if (transform.parent.position.x > GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x) {
-            for (; transform.parent.position.x > GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.x; 
+        } else if (transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x) {
+            for (; transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x; 
                 transform.parent.position = new Vector3(transform.parent.position.x-1, transform.parent.position.y, transform.parent.position.z)) {
-                if (opponentFound == true) yield break;
+                
                 if (transform.parent.position.x  == 0) continue;
                 
                 yield return new WaitForSeconds(troopStats.speed);
+
+                if (opponentFound == true) yield break;
             }
         }
         
-        for (; transform.parent.position.z < GridManager._Instance.grid[troopStats.TargCordCompiler()].cords.y; 
+        for (; transform.parent.position.z < GridManager._Instance.grid[finalTargCord].cords.y; 
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z+1)) { 
-            if (opponentFound == true) yield break;
+             
             if (transform.parent.position.z == 0) continue;
 
             yield return new WaitForSeconds(troopStats.speed);
+//this resolves the stopping too late issue
+            if (opponentFound == true) yield break;
         }
     }
 
@@ -112,10 +121,23 @@ public class Troop : MonoBehaviour, UnitInterface
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "OpponentUnit") {
+        if (other.tag == "OpponentUnit") { 
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());
+        } else if (other.tag == "OpponentStronghold") {
+            opponentFound = true;
+            enemy = other.gameObject;
+            StartCoroutine(DealDamageStronghold());
+        }
+    }
+
+    private IEnumerator DealDamageStronghold()
+    {
+        while (enemy != null) {
+            enemy.GetComponent<Stronghold>().health -= dmg;
+
+            yield return new WaitForSeconds(troopStats.speed);
         }
     }
 

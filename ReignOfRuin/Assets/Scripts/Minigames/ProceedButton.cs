@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CompletionProceed : MonoBehaviour
+public class ProceedButton : MonoBehaviour
 {
    public UnitHandler uH, sH;
 
@@ -9,16 +9,21 @@ public class CompletionProceed : MonoBehaviour
    private void Awake()
    {
       //this shit needs to change 
+      dH = DialogueHandler._Instance; 
+   }
+
+   public void FindUnit()
+   {
       if (GameObject.FindWithTag("PlayerUnit") != null)
          uH = GameObject.FindWithTag("PlayerUnit").GetComponent<UnitHandler>();
       if (GameObject.FindWithTag("Station") != null)
          sH = GameObject.FindWithTag("Station").GetComponent<UnitHandler>();
-
-      dH = DialogueHandler._Instance; 
    }
 
-   public void CompleteProceed()
+   public void CompleteProceedButton()
    { 
+      FindUnit();
+
       if (GameObject.FindWithTag("Station") != null && sH.imEngaged)
          sH.StateProceed();
 
@@ -26,25 +31,17 @@ public class CompletionProceed : MonoBehaviour
          uH.StateProceed(); 
    } 
 
-   public void SpeechProceed()
+   public void SpeechProceedButton()
    { 
-      dH.testDialogue.inx++;
-   
-      if (dH.testDialogue.inx >= dH.testDialogue.dialogueSequence.Capacity) {
-            CompleteProceed();
-            return;
-      } else  
-         if (dH.testDialogue.dialogueSequence[dH.testDialogue.inx] == null) {
-            CompleteProceed();
-            return; 
-         }
-         else
-            dH.StartCoroutine(dH.TypeWriter(dH.testDialogue.dialogueSequence[dH.testDialogue.inx], dH.testDialogue));     
+      dH.SpeechProceed();
    }
 
    public void MinigameProceed()
    {
+      //FindUnit();
+      //Debug.Log("Time for a minigame");
       MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex(), sH);
-      Destroy(transform.parent.gameObject);
+      //Destroy(transform.parent.gameObject);
+      transform.parent.gameObject.SetActive(false);
    }
 }

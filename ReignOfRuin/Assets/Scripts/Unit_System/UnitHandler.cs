@@ -11,7 +11,7 @@ public class UnitHandler : MonoBehaviour
       Unit
    } public UnitType unitType;
 
-   public bool imEngaged;
+   public bool imEngaged, ranInto;
    public int statMultiplier;
 
    private void Awake()
@@ -46,4 +46,13 @@ public class UnitHandler : MonoBehaviour
       if (unitType == UnitType.Station) transform.GetChild(0).gameObject.GetComponent<CharacterStation>().Again();
       state = 1;
    }
+
+   private void OnTriggerEnter(Collider other)
+   {
+      if (other.tag == "Building" || other.tag == "Station") {
+         ranInto = true;
+         //Debug.Log("I ran into something");
+      }
+   }
+   
 }

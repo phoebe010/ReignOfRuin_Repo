@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7524594816512531853}
-  - component: {fileID: 3920527730879369595}
+  - component: {fileID: 8402779625517097439}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -212,7 +212,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6921142486094860891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3920527730879369595
+--- !u!114 &8402779625517097439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,16 +221,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3585776834456443160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e38aefb5f047411469961f131f74d3a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9817e85937ae0df4592a2f497febb63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 8322469622768001755, guid: a9923e64e5506f24f8c680a535ae70f7, type: 3}
+  unit: {fileID: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   offsetX: 0
   offsetZ: 0
   amountToSpawn: 0
+  spawnInterval: 0.05
   randPos: {x: 0, y: 0, z: 0}
   space: {x: 0, y: 0, z: 0}
   randPositions: []

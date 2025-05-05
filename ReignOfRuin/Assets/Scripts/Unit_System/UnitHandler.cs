@@ -17,6 +17,8 @@ public class UnitHandler : MonoBehaviour
    private void Awake()
    {
       maxStates = transform.childCount;
+      gameObject.tag = "Untagged";
+      transform.GetChild(0).gameObject.GetComponent<UnitInterface>().Again();
       StartCoroutine(WaitForInstance()); 
    } 
 

@@ -18,7 +18,7 @@ public class Character : MonoBehaviour, UnitInterface
       //rB = gameObject.GetComponent<Rigidbody>();
       StartCoroutine(Orbit());
 
-      Again();
+      //Again();
       canvas = GameObject.Find("Canvas");  
    }  
 

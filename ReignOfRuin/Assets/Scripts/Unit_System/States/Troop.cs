@@ -21,6 +21,28 @@ public class Troop : MonoBehaviour, UnitInterface
 
     private void Awake()
     {  
+        //switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    
+        //    case 0: 
+        //        health = troopStats.health;
+        //        dmg = troopStats.dmg; 
+        //        break;
+        //    case 1:
+        //        health = troopStats.health*1.25f;
+        //        dmg = troopStats.dmg*1.25f;
+        //        break;
+        //    case 2:
+        //        health = troopStats.health*1.5f;
+        //        dmg = troopStats.dmg*1.5f;
+        //        break;
+        //}
+        
+        //opponentFound = false; 
+ 
+        //StartCoroutine(WaitForInstance());
+    } 
+
+    public void Again()
+    {
         switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    
             case 0: 
                 health = troopStats.health;
@@ -39,10 +61,8 @@ public class Troop : MonoBehaviour, UnitInterface
         opponentFound = false; 
  
         StartCoroutine(WaitForInstance());
-    } 
 
-    public void Again()
-    {}
+    }
 
     private IEnumerator WaitForInstance()
     {
@@ -121,11 +141,12 @@ public class Troop : MonoBehaviour, UnitInterface
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "OpponentUnit") { 
+        if (other.tag == "OpponentUnit" && opponentFound == false) { 
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());
-        } else if (other.tag == "OpponentStronghold") {
+        }
+        if (other.tag == "OpponentStronghold" && opponentFound == false) {
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamageStronghold());
@@ -134,10 +155,15 @@ public class Troop : MonoBehaviour, UnitInterface
 
     private IEnumerator DealDamageStronghold()
     {
-        while (enemy != null) {
-            enemy.GetComponent<Stronghold>().health -= dmg;
+        while (true) { 
+            if (enemy != null) {
+                enemy.GetComponent<Stronghold>().health -= dmg;
 
-            yield return new WaitForSeconds(troopStats.speed);
+                yield return new WaitForSeconds(troopStats.speed);
+            } else {
+                opponentFound = false;
+                yield break;
+            }
         }
     }
 

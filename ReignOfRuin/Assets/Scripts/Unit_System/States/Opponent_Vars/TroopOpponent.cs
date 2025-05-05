@@ -7,7 +7,8 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
 {
     //turn this into two scripts
     public TroopStats troopStats;  
-    public TeleCords tC;
+    //public TeleCords tC;
+    public Vector2Int oppTeleCords;
 
     public enum TroopType {
         Peasant,
@@ -22,13 +23,16 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
 
     private void Awake()
     {     
-        opponentFound = false; 
- 
-        StartCoroutine(WaitForInstance());
+        Again();
     } 
 
     public void Again()
-    {}
+    {
+        opponentFound = false; 
+ 
+        StartCoroutine(WaitForInstance());
+
+    }
 
     private IEnumerator WaitForInstance()
     {
@@ -43,7 +47,7 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
     {
         troopType = (TroopType)Random.Range(0, (int)System.Enum.GetValues(typeof(TroopType)).Cast<TroopType>().Max());
 
-        tC.teleCords = new Vector2Int(Random.Range(0, 3), GridManager._Instance.gridSize.y-1); 
+        oppTeleCords = new Vector2Int(Random.Range(0, 3), GridManager._Instance.gridSize.y-1); 
 
         StartCoroutine(MoveToGrid());
     }
@@ -51,7 +55,7 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
     private IEnumerator MoveToGrid()
     {
         float elapsedTime=0, hangTime=2f;
-        Vector3 curPos=transform.parent.position, targPos=new Vector3(tC.teleCords.x, transform.parent.position.y, tC.teleCords.y), curRot=transform.parent.eulerAngles;
+        Vector3 curPos=transform.parent.position, targPos=new Vector3(oppTeleCords.x, transform.parent.position.y, oppTeleCords.y), curRot=transform.parent.eulerAngles;
 
         while (elapsedTime < hangTime) {
             transform.parent.position = Vector3.Lerp(curPos, targPos, (elapsedTime/hangTime));
@@ -116,7 +120,7 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerUnit") { 
+        if (other.tag == "PlayerTroop" && opponentFound == false) { 
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());
@@ -140,7 +144,7 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
     {
         while (true) {
             if (enemy != null) {
-                enemy.GetComponentInChildren<TroopOpponent>().health -= dmg;
+                enemy.GetComponentInChildren<Troop>().health -= dmg;
 
                 yield return new WaitForSeconds(troopStats.speed);
             } else {

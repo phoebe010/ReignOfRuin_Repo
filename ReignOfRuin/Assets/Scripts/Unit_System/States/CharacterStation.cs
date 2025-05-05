@@ -15,7 +15,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    { 
       unitHandler = transform.parent.gameObject.GetComponent<UnitHandler>(); 
 
-      Again();
+      //Again();
       canvas = GameObject.Find("Canvas");  
    }  
 

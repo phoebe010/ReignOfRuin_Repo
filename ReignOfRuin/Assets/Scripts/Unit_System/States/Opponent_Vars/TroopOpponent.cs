@@ -124,11 +124,12 @@ public class TroopOpponent : MonoBehaviour, UnitInterface
             opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamage());
-        } //else if (other.tag == "OpponentStronghold") {
-        //    opponentFound = true;
-        //    enemy = other.gameObject;
-        //    StartCoroutine(DealDamageStronghold());
-        //}
+        } 
+        if (other.tag == "PlayerStronghold" && opponentFound == false) {
+            opponentFound = true;
+            enemy = other.gameObject;
+            StartCoroutine(DealDamageStronghold());
+        }
     }
 
     private IEnumerator DealDamageStronghold()

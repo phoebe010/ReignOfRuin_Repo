@@ -12,6 +12,7 @@ TagManager:
   - OpponentStronghold
   - Coin
   - Building
+  - PlayerStronghold
   layers:
   - Default
   - TransparentFX

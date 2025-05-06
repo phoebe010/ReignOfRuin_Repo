@@ -42,6 +42,6 @@ public class ProceedButton : MonoBehaviour
       //Debug.Log("Time for a minigame");
       MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex(), sH);
       //Destroy(transform.parent.gameObject);
-      transform.parent.gameObject.SetActive(false);
+      transform.parent.parent.gameObject.SetActive(false);
    }
 }

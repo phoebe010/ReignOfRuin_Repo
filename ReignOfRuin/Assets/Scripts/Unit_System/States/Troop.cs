@@ -44,15 +44,15 @@ public class Troop : MonoBehaviour, UnitInterface
     public void Again()
     {
         switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    
-            case 0: 
+            case 1: 
                 health = troopStats.health;
                 dmg = troopStats.dmg; 
                 break;
-            case 1:
+            case 2:
                 health = troopStats.health*1.25f;
                 dmg = troopStats.dmg*1.25f;
                 break;
-            case 2:
+            case 3:
                 health = troopStats.health*1.5f;
                 dmg = troopStats.dmg*1.5f;
                 break;

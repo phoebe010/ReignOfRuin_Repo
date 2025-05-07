@@ -53,6 +53,6 @@ public class WaitAndSelect : MonoBehaviour, UnitInterface
         transform.parent.gameObject.tag = "PlayerTroop";
         //Destroy(startTileObj);
         startTileUI.SetActive(false);
-        PlayerStates._Instance.isEngaged = false;
+        PlayerStates._Instance.isEngaged = false; 
    } 
 }

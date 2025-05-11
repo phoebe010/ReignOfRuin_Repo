@@ -13,6 +13,10 @@ public class UnitHandler : MonoBehaviour
 
    public bool imEngaged, ranInto;
    public int statMultiplier;
+   public GameObject interactObj;
+
+   [SerializeField] 
+   private int instantCounter = 0;
 
    private void Awake()
    {
@@ -30,14 +34,31 @@ public class UnitHandler : MonoBehaviour
       statMultiplier = MinigameManager._Instance.gameLvl;
    }
 
+   void Update()
+   {
+      if (imEngaged && instantCounter < 1)
+      {
+         interactObj = Instantiate(Resources.Load<GameObject>("Interaction_Indicator"), transform.position + new Vector3(0, 0.9f, 0), Resources.Load<GameObject>("Interaction_Indicator").transform.rotation);
+         instantCounter++;
+      }
+      else if (!imEngaged && instantCounter >= 1)
+      {
+         if (interactObj != null)
+            Destroy(interactObj);
+         instantCounter = 0;
+      }
+   }
+
    public void StateProceed()
    {
-      if (state == maxStates) return; 
+      if (state == maxStates)  
+         return;  
 
       transform.GetChild(state-1).gameObject.GetComponent<UnitInterface>().DestroyUI();
       transform.GetChild(state-1).gameObject.SetActive(false);
  
       transform.GetChild(state++).gameObject.SetActive(true); 
+      if (state == maxStates) imEngaged = false;
       transform.GetChild(state-1).gameObject.GetComponent<UnitInterface>().Again();
    }
 

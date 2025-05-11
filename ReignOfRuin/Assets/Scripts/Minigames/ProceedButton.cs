@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ProceedButton : MonoBehaviour
 {
@@ -43,5 +46,10 @@ public class ProceedButton : MonoBehaviour
       MinigameManager._Instance.InitMinigame(transform.GetSiblingIndex(), sH);
       //Destroy(transform.parent.gameObject);
       transform.parent.parent.gameObject.SetActive(false);
+   }
+   
+   public void Restart()
+   {
+      SceneManager.LoadScene(0);
    }
 }

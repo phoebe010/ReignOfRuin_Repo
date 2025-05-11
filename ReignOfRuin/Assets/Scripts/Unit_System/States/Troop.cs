@@ -42,7 +42,7 @@ public class Troop : MonoBehaviour, UnitInterface
     } 
 
     public void Again()
-    {
+    { 
         StartCoroutine(PlayerStates._Instance.Blink());
 
         switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    

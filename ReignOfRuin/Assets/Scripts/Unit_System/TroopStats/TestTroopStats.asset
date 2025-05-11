@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestTroopStats
   m_EditorClassIdentifier: 
   speed: 0.5
-  xPosition: 0
+  xPosition: 2
   yPosition: 0
   health: 10
   dmg: 1

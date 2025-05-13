@@ -109,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3117500970484405991}
   - component: {fileID: 6834819640832986149}
+  - component: {fileID: 4242861919582480109}
   - component: {fileID: 4091568126039705296}
   - component: {fileID: 9182207384199900337}
   - component: {fileID: 1502477090259453049}
@@ -147,12 +148,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcacbd07f77f684f9289517f789ac34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  troopStats: {fileID: 11400000, guid: af66986226e66454087a698ba9bb6d77, type: 2}
+  troopStats: {fileID: 11400000, guid: 3b9264b414196f841b4446dc41c1e8cb, type: 2}
   tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
-  troopType: 0
   health: 0
   dmg: 0
   finalTargCord: {x: 0, y: 0}
+  opponentFound: 0
+  enemy: {fileID: 0}
+--- !u!114 &4242861919582480109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115559696171890312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a79f1950553b384ea6a55e8c42b7fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troop: {fileID: 6834819640832986149}
 --- !u!65 &4091568126039705296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -173,7 +188,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 4}
 --- !u!65 &9182207384199900337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,7 +209,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 1, y: 0, z: 1}
+  m_Center: {x: 1, y: 0, z: 4}
 --- !u!65 &1502477090259453049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -215,7 +230,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: -1, y: 0, z: 1}
+  m_Center: {x: -1, y: 0, z: 4}
 --- !u!54 &2626585722549571375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -258,7 +273,7 @@ GameObject:
   - component: {fileID: 912209228115090520}
   - component: {fileID: 3575509762580055492}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: Archer
   m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +328,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e647694a1cdce5544b03c05ba8410a69, type: 2}
+  - {fileID: 2100000, guid: 9b1cc99d1308a0e4591481bb3678e3ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -376,6 +391,8 @@ MonoBehaviour:
   imEngaged: 0
   ranInto: 0
   statMultiplier: 0
+  interactObj: {fileID: 0}
+  instantCounter: 0
 --- !u!54 &3575509762580055492
 Rigidbody:
   m_ObjectHideFlags: 0

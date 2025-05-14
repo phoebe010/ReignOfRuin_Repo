@@ -10,19 +10,19 @@ public class Wizard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "OpponentUnit" && troop.opponentFound == false) { 
+        if (other.tag == "OpponentUnit") { 
             troop.opponentFound = true;
             enemies.Add(other.gameObject);
             
-            foreach(GameObject en in enemies)
-                StartCoroutine(DealDamage(en));
+            //foreach(GameObject en in enemies)
+            StartCoroutine(DealDamage(enemies[enemies.Count-1]));
         }
         if (other.tag == "OpponentStronghold" && troop.opponentFound == false) {
             troop.opponentFound = true;
             enemy = other.gameObject;
             StartCoroutine(DealDamageStronghold());
         }
-    }
+    } 
 
     private IEnumerator DealDamageStronghold()
     {
@@ -40,15 +40,16 @@ public class Wizard : MonoBehaviour
 
     private IEnumerator DealDamage(GameObject en)
     { //infinite loop
-        //while (true) {
+        while (true) {
             if (en != null) {
+                //troop.opponentFound = true;
                 en.GetComponentInChildren<TroopOpponent>().health -= troop.dmg;
                 yield return new WaitForSeconds(troop.troopStats.speed);
-            } else if (enemies.Count < 1) {
+            } else {
                 troop.opponentFound = false;
                 StartCoroutine(troop.MoveOnGrid());
                 yield break;
             }
-        //}
+        }
     }
 }

@@ -8,6 +8,8 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    public Dialogue dialogue;
    //private GameObject dialogueObj; 
    private UnitHandler unitHandler;
+   [SerializeField]
+   private Bounds bounds;
 
    GameObject canvas;  
 
@@ -21,7 +23,9 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 
    public void Again()
    {
-      transform.parent.gameObject.tag = "Untagged";   
+      transform.parent.gameObject.tag = "Untagged"; 
+
+      bounds = transform.parent.gameObject.GetComponent<BoxCollider>().bounds;
       
       if (dialogueUI == null)
          dialogueUI = GameObject.Find("InteractionUI").transform.GetChild(0).gameObject;

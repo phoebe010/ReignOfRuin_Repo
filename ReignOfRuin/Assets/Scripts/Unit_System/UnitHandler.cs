@@ -8,7 +8,8 @@ public class UnitHandler : MonoBehaviour
    public int state = 1, maxStates = 3;  
    public enum UnitType {
       Station,
-      Unit
+      Unit,
+      Opponent
    } public UnitType unitType;
 
    public bool imEngaged, ranInto;

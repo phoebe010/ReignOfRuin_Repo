@@ -3128,7 +3128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402779625517097439, guid: dd180f7607f7fbd448c731dec424e97a, type: 3}
       propertyPath: spawnInterval
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

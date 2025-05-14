@@ -13,7 +13,9 @@ public class Wizard : MonoBehaviour
         if (other.tag == "OpponentUnit" && troop.opponentFound == false) { 
             troop.opponentFound = true;
             enemies.Add(other.gameObject);
-            StartCoroutine(DealDamage());
+            
+            foreach(GameObject en in enemies)
+                StartCoroutine(DealDamage(en));
         }
         if (other.tag == "OpponentStronghold" && troop.opponentFound == false) {
             troop.opponentFound = true;
@@ -36,19 +38,17 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    private IEnumerator DealDamage()
-    {
-        while (true) {
-            if (enemy != null) {
-                foreach (GameObject en in enemies)
-                    en.GetComponentInChildren<TroopOpponent>().health -= troop.dmg;
-
+    private IEnumerator DealDamage(GameObject en)
+    { //infinite loop
+        //while (true) {
+            if (en != null) {
+                en.GetComponentInChildren<TroopOpponent>().health -= troop.dmg;
                 yield return new WaitForSeconds(troop.troopStats.speed);
-            } else {
+            } else if (enemies.Count < 1) {
                 troop.opponentFound = false;
                 StartCoroutine(troop.MoveOnGrid());
                 yield break;
             }
-        }
+        //}
     }
 }

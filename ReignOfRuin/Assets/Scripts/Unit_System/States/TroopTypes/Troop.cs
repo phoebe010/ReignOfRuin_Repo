@@ -20,6 +20,9 @@ public class Troop : MonoBehaviour, UnitInterface
     { 
         StartCoroutine(PlayerStates._Instance.Blink());
 
+        health = troopStats.health;
+        dmg = troopStats.dmg;
+
         switch (transform.parent.gameObject.GetComponent<UnitHandler>().statMultiplier) {    
             case 1: 
                 health = troopStats.health;

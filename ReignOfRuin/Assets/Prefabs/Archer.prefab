@@ -154,7 +154,6 @@ MonoBehaviour:
   dmg: 0
   finalTargCord: {x: 0, y: 0}
   opponentFound: 0
-  enemy: {fileID: 0}
 --- !u!114 &4242861919582480109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troop: {fileID: 6834819640832986149}
+  enemy: {fileID: 0}
 --- !u!65 &4091568126039705296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -295,6 +295,7 @@ Transform:
   - {fileID: 6717861289312400412}
   - {fileID: 9105154500654331848}
   - {fileID: 3117500970484405991}
+  - {fileID: 4860718250058717797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1749021867646500057
@@ -312,7 +313,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4649626281728029866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -466,3 +467,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tC: {fileID: 11400000, guid: 09019da5a91633541879fd6723e141aa, type: 2}
   startTileUI: {fileID: 4222010329861735984, guid: 958280faac0e6db4ba8eb8ebbc532c8c, type: 3}
+--- !u!1001 &3990792513857057055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7468379720747740358}
+    m_Modifications:
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177572394893488576, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+      propertyPath: m_Name
+      value: Peasant_Archer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+--- !u!4 &4860718250058717797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8365042525789940602, guid: 11d88c9fce1758a43a4f7a58b6516073, type: 3}
+  m_PrefabInstance: {fileID: 3990792513857057055}
+  m_PrefabAsset: {fileID: 0}

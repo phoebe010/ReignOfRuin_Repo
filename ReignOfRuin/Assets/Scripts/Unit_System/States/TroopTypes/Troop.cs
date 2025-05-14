@@ -87,7 +87,10 @@ public class Troop : MonoBehaviour, UnitInterface
                 
                 yield return new WaitForSeconds(troopStats.speed);
 
-                if (opponentFound == true) yield break;
+                if (opponentFound == true) { 
+                    Debug.Log("I can't move");
+                    yield break;
+                }
             }
         } else if (transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x) {
             for (; transform.parent.position.x > GridManager._Instance.grid[finalTargCord].cords.x; 
@@ -97,7 +100,10 @@ public class Troop : MonoBehaviour, UnitInterface
                 
                 yield return new WaitForSeconds(troopStats.speed);
 
-                if (opponentFound == true) yield break;
+                if (opponentFound == true) {
+                    Debug.Log("I can't move");
+                    yield break;
+                }
             }
         }
         
@@ -108,7 +114,10 @@ public class Troop : MonoBehaviour, UnitInterface
 
             yield return new WaitForSeconds(troopStats.speed);
 //this resolves the stopping too late issue
-            if (opponentFound == true) yield break;
+            if (opponentFound == true) {
+                Debug.Log("I can't move");
+                yield break;
+            }
         }
     }
 

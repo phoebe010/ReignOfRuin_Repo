@@ -102,7 +102,7 @@ public class Character : MonoBehaviour, UnitInterface
       dialogueUI.SetActive(false);
 
       PlayerStates._Instance.isEngaged = false;
-      unitHandler.imEngaged = false;
+      //unitHandler.imEngaged = false;
         
    }
 }

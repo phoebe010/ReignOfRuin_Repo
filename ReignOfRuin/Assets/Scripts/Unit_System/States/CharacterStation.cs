@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class CharacterStation : MonoBehaviour, UnitInterface
 { 
-   public CameraZoomManager cameraZoomManager;
+   
    public Transform stationCamTransform;
    public GameObject dialogueUI;
    public Dialogue dialogue;
@@ -21,7 +21,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 
       //Again();
       canvas = GameObject.Find("Canvas");  
-      cameraZoomManager = GameObject.Find("Cameras").GetComponent<CameraZoomManager>();
+      
    }  
 
    public void Again()
@@ -40,8 +40,8 @@ public class CharacterStation : MonoBehaviour, UnitInterface
       if (other.tag == "Player" && !PlayerStates._Instance.isEngaged)
       {
          transform.parent.gameObject.tag = "Station";
-         cameraZoomManager.StopFollowingPlayer();
-         cameraZoomManager.MoveToTarget(stationCamTransform);
+         unitHandler.cameraZoomManager.StopFollowingPlayer();
+         unitHandler.cameraZoomManager.MoveToTarget(stationCamTransform);
          DialogueEngaged();    
                
       } 
@@ -50,7 +50,7 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    private void OnTriggerExit(Collider other)
    {
       if (other.tag == "Player") {
-         cameraZoomManager.FollowPlayerYOnly();
+         unitHandler.cameraZoomManager.FollowPlayerYOnly();
          //cameraZoomManager.ResetCamera();
          Again();
          //Destroy(dialogueObj);

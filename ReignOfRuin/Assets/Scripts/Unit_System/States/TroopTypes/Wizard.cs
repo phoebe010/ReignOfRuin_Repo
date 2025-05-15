@@ -1,16 +1,22 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Wizard : MonoBehaviour
 {
     public Troop troop;
     public List<GameObject> enemies = new List<GameObject>();
     public GameObject enemy;
-
+    [SerializeField]
+    private int nullCount=0, nonNullCount=0;
+    [SerializeField]
+    private bool firstTime=false, frame=false;
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "OpponentUnit") { 
+            firstTime = true;
             troop.opponentFound = true;
             enemies.Add(other.gameObject);
             
@@ -23,6 +29,14 @@ public class Wizard : MonoBehaviour
             StartCoroutine(DealDamageStronghold());
         }
     } 
+
+    void Update()
+    {
+        if (nonNullCount <= 1 && firstTime && !frame) {
+            frame = true;
+            StartCoroutine(troop.MoveOnGrid());
+        }
+    }
 
     private IEnumerator DealDamageStronghold()
     {
@@ -42,12 +56,14 @@ public class Wizard : MonoBehaviour
     { //infinite loop
         while (true) {
             if (en != null) {
-                //troop.opponentFound = true;
                 en.GetComponentInChildren<TroopOpponent>().health -= troop.dmg;
                 yield return new WaitForSeconds(troop.troopStats.speed);
-            } else {
-                troop.opponentFound = false;
-                StartCoroutine(troop.MoveOnGrid());
+            }  
+            else {
+                nullCount++; 
+                nonNullCount = enemies.Count - nullCount;
+                troop.opponentFound = false;  
+                frame = false;
                 yield break;
             }
         }

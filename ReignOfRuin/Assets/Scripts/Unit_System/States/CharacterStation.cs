@@ -21,13 +21,15 @@ public class CharacterStation : MonoBehaviour, UnitInterface
 
       //Again();
       canvas = GameObject.Find("Canvas");  
+      cameraZoomManager = GameObject.Find("Cameras").GetComponent<CameraZoomManager>();
    }  
 
    public void Again()
    {
       transform.parent.gameObject.tag = "Untagged"; 
 
-      bounds = transform.parent.gameObject.GetComponent<BoxCollider>().bounds;
+      if (transform.parent.gameObject.GetComponent<BoxCollider>() != null)
+         bounds = transform.parent.gameObject.GetComponent<BoxCollider>().bounds;
       
       if (dialogueUI == null)
          dialogueUI = GameObject.Find("InteractionUI").transform.GetChild(0).gameObject;

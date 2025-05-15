@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-// ============== INSTRUCTION ==============
-// 1. Create a GameObject to define the sound area.
-//    - Add a Box Collider and enable "Is Trigger".
-// 2. Create another GameObject with this script and an AudioSource component.
-//    - Set AudioSource: loop = true, playOnAwake = false, spatialBlend = 1 (for 3D sound).
-// 3. Assign the Area collider and the Player GameObject in the Inspector.
+// Setting it up:
+// Create a GameObject to define the sound area.
+//  -Add a Box Collider and enable "Is Trigger".
+// Create another GameObject with this script and an AudioSource component.
+//  -Set AudioSource: loop = true, playOnAwake = false, spatialBlend = 1 (for 3D sound).
+// Assign the Area collider and the Player GameObject in the Inspector.
+// If there is an issue with sound not working, check if rigidbody is assigned to player. Happened to me.
 
 [RequireComponent(typeof(AudioSource))]
 public class AmbienceSound : MonoBehaviour

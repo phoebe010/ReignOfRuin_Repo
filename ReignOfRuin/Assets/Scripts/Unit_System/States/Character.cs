@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour, UnitInterface
 { 
+   public CameraZoomManager cameraZoomManager;
+   public Transform stationCamTransform;
    public GameObject dialogueUI;
    public List<Dialogue> randDialogue = new List<Dialogue>();
    public Rigidbody rB;
@@ -38,6 +40,8 @@ public class Character : MonoBehaviour, UnitInterface
       if (other.tag == "Player" &&  !PlayerStates._Instance.isEngaged) { 
          //StopCoroutine(Orbit());
          transform.parent.gameObject.tag = "PlayerUnit"; 
+         cameraZoomManager.StopFollowingPlayer();
+         cameraZoomManager.MoveToTarget(stationCamTransform);
          DialogueEngaged(); 
       }   
    }  
@@ -45,6 +49,8 @@ public class Character : MonoBehaviour, UnitInterface
    private void OnTriggerExit(Collider other)
    {
       if (other.tag == "Player") {
+         cameraZoomManager.FollowPlayerYOnly();
+         //cameraZoomManager.ResetCamera();
          Again(); 
          unitHandler.ranInto = false;
          PlayerStates._Instance.isEngaged = false;

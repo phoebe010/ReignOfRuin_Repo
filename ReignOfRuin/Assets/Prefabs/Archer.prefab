@@ -67,6 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a5ef1ac0e966a49a5c5406c5381862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraZoomManager: {fileID: 0}
+  stationCamTransform: {fileID: 0}
   dialogueUI: {fileID: 0}
   randDialogue:
   - {fileID: 11400000, guid: a40172eb547ae684bace626e17a125fb, type: 2}

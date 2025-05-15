@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 599935651}
-  cameraOffset: 23.33
+  cameraOffset: 5
 --- !u!1 &1487510208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1630,14 @@ PrefabInstance:
     - target: {fileID: 8708457422354350060, guid: 87b6bddbbb4dae2449b4f8031e9c1844, type: 3}
       propertyPath: m_Name
       value: EnvironmentV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951987336779790021, guid: 87b6bddbbb4dae2449b4f8031e9c1844, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951987336779790021, guid: 87b6bddbbb4dae2449b4f8031e9c1844, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

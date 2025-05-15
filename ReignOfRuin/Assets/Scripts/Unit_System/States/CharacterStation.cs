@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class CharacterStation : MonoBehaviour, UnitInterface
 { 
+   public CameraZoomManager cameraZoomManager;
+   public Transform stationCamTransform;
    public GameObject dialogueUI;
    public Dialogue dialogue;
    //private GameObject dialogueObj; 
@@ -32,16 +34,22 @@ public class CharacterStation : MonoBehaviour, UnitInterface
    }
 
    private void OnTriggerEnter(Collider other)
-   {    
-      if (other.tag == "Player" && !PlayerStates._Instance.isEngaged) { 
-         transform.parent.gameObject.tag = "Station"; 
-         DialogueEngaged();          
+   {
+      if (other.tag == "Player" && !PlayerStates._Instance.isEngaged)
+      {
+         transform.parent.gameObject.tag = "Station";
+         cameraZoomManager.StopFollowingPlayer();
+         cameraZoomManager.MoveToTarget(stationCamTransform);
+         DialogueEngaged();    
+               
       } 
    }  
 
    private void OnTriggerExit(Collider other)
    {
       if (other.tag == "Player") {
+         cameraZoomManager.FollowPlayerYOnly();
+         //cameraZoomManager.ResetCamera();
          Again();
          //Destroy(dialogueObj);
          dialogueUI.SetActive(false);
